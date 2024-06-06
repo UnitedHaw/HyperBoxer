@@ -10,7 +10,7 @@ using Cysharp.Threading.Tasks;
 using static UnityEngine.CullingGroup;
 using Assets.Scripts.Interfaces;
 
-public class Combat : MonoBehaviour, IDamageable
+public class CombatOld : MonoBehaviour, IDamageable
 {
     public event Action<int> OnDamage;
     public event Action OnDied;
@@ -22,7 +22,7 @@ public class Combat : MonoBehaviour, IDamageable
     private AnimationController _animation;
     private IUnitsStateChanger _unitState;
     private VFX _vfx;
-    private Combat _enemyCombat;
+    private CombatOld _enemyCombat;
     private Vector3 _startPosition;
     private Quaternion _startRotation;
     private Coroutine _combatCorutine;
@@ -33,7 +33,6 @@ public class Combat : MonoBehaviour, IDamageable
     private int _attackAmount;
     private float _damageDelay = 0;
     
-
     public AttackType CurrentAttack => _currentAttack;
     public AnimationController AnimationController => _animation;
     public Coroutine CombatCourutine => _combatCorutine;
@@ -54,6 +53,7 @@ public class Combat : MonoBehaviour, IDamageable
         _animation.OnAttack += (e) => _currentAttack = e;
         _animation.OnDamage += TakeDamage;
     }
+
 
     private void SetState(UnitStates state)
     {
@@ -99,7 +99,7 @@ public class Combat : MonoBehaviour, IDamageable
             _unitState.SetState(UnitStates.Win);
     }
 
-    public void SetEnemyTarget(Combat combatEnemy)
+    public void SetEnemyTarget(CombatOld combatEnemy)
     {
         _enemyCombat = combatEnemy;
         _animation.AttackAnimation.OnDamageFrame += _enemyCombat.AnimationController.TakeDamage;
@@ -178,5 +178,10 @@ public class Combat : MonoBehaviour, IDamageable
         _unitState.OnStateChanged -= SetState;
         _animation.OnAttack -= (e) => _currentAttack = e;
         _animation.OnDamage -= TakeDamage;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -12,7 +12,7 @@ namespace Assets.Scripts.Interfaces
         public event Action OnDied;
 
         public int Damage {  get; }
-        public void TakeDamage();
+        public void TakeDamage(int damage);
         public void SetDead();
     }
 }

@@ -10,7 +10,7 @@ public class AttackAnimation : MonoBehaviour
     public event Action<AttackType> OnDamageFrame;
     public event Action OnDeadFrame;
 
-    private Combat _unitCombat;
+    private CombatOld _unitCombat;
     private VFX _vfx;
 
     public void Init(VFX vfx)
@@ -20,7 +20,7 @@ public class AttackAnimation : MonoBehaviour
 
     private void Awake()
     {
-        _unitCombat = GetComponentInParent<Combat>();
+        _unitCombat = GetComponentInParent<CombatOld>();
     }
 
     public void TargetDamage()
