@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="CombatControlView" src="project://database/Assets/Project_HyperBoxer/UI/CombatControlView.uxml?fileID=9197481963319205126&amp;guid=d2946ab7fec6bc0488acda23e36be863&amp;type=3#CombatControlView" />
+    <ui:Instance template="CombatControlView" name="TemplateContainer" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%;" />
+</ui:UXML>

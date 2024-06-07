@@ -14,11 +14,6 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
             _animation.DeathAnim();
         }
 
-        protected override void StartCombat()
-        {
-            SetState(UnitStates.Combat);
-        }
-
         protected override void Win()
         {
             DeinitCombat();

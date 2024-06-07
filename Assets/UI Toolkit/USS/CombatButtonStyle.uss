@@ -1,0 +1,15 @@
+.button-style Button {
+    width: 80px;
+    height: 60px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(61, 79, 255, 0.27);
+    color: rgb(255, 255, 255);
+    -unity-font: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=cb56b988cc5b3ee4793888e1bb3d9fd5&type=3#NotInter-Regular");
+    -unity-font-definition: initial;
+    -unity-font-style: bold;
+}

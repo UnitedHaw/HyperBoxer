@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/USS/CombatButtonStyle.uss?fileID=7433441132597879392&amp;guid=b058b2f1e1b664f4ebcbe0cad589ac30&amp;type=3#CombatButtonStyle" />
+    <ui:VisualElement picking-mode="Ignore" class="button-style" style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="LeftPanel" picking-mode="Ignore" style="flex-grow: 1; flex-direction: column-reverse; align-items: flex-start;">
+            <ui:Button text="Leg" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Leg" />
+            <ui:Button text="Hand" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Hand" />
+        </ui:VisualElement>
+        <ui:VisualElement name="RightPanel" picking-mode="Ignore" style="flex-grow: 1; flex-direction: column-reverse; align-items: flex-end;">
+            <ui:Button text="Leg" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Leg" />
+            <ui:Button text="Hand" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Hand" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

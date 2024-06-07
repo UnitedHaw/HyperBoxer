@@ -1,10 +1,5 @@
 using Assets.Project_HyperBoxer.Scripts;
 using Assets.Project_HyperBoxer.Scripts.Combat;
-using Assets.Project_HyperBoxer.Scripts.Interfaces;
-using Assets.Scripts.Enums;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class CombatBehaviour : MonoBehaviour

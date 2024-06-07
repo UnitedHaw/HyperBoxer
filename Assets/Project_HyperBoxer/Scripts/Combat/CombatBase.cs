@@ -2,12 +2,7 @@
 using Assets.Scripts.Enums;
 using Assets.Scripts.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Assets.Project_HyperBoxer.Scripts.Combat
 {
@@ -21,6 +16,7 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
 
         public event Action<int> OnDamage;
         public event Action OnDied;
+        public event Action OnCombatStarted;
 
         private void Start()
         {
@@ -66,6 +62,11 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
             OnDied?.Invoke();
         }
 
+        public void Punch(AttackType attackType)
+        {
+            _animation.SetAttack(attackType);
+        }
+
         public void TakeDamage(int damage)
         {
             OnDamage?.Invoke(damage);
@@ -93,7 +94,10 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
             _unitStatechanger.OnStateChanged -= SetState;
         }
 
-        protected abstract void StartCombat();
+        protected virtual void StartCombat()
+        {
+            OnCombatStarted?.Invoke();
+        }
         protected abstract void Win();
         protected abstract void Lose();
     }
