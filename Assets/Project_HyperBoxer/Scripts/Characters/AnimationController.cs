@@ -28,17 +28,14 @@ public class AnimationController : MonoBehaviour
     public Animator CombatAnimator => _animator;
     public AttackAnimation AttackAnimation => _attackAnimation;
 
-
-    private void Awake()
-    {
-        _animator = GetComponentInChildren<Animator>();
-        _attackAnimation = _animator.GetComponent<AttackAnimation>();
-    }
-
     public void Init(IUnitStateEvent unitEvent, VFX vfx)
     {
         _unitEvent = unitEvent;
         _vfx = vfx;
+
+        _animator = GetComponentInChildren<Animator>();
+        _attackAnimation = _animator.GetComponent<AttackAnimation>();
+
         _attackAnimation.Init(_vfx);
         _unitEvent.OnStateChanged += SetState;
     }

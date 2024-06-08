@@ -10,6 +10,12 @@ namespace Assets.Project_HyperBoxer.Scripts.Controllers
     public class BotController : ICharacterController
     {
         private CombatBase _combat;
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Setup(CombatBase combatBase)
         {
             _combat = combatBase;

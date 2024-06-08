@@ -16,6 +16,7 @@ namespace Assets.Project_HyperBoxer.Scripts.UI
         public GameplayWindow(UIDocument rootDocument) : base(rootDocument)
         {
             _combatControl = new CombatControlWindow(_rootDocument);
+            _uiWindows.Add(_combatControl);
         }
     }
 }

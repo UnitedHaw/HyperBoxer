@@ -8,19 +8,23 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
 {
     public abstract class CombatBase : CombatBehaviour, IDamageable, IPurificator
     {
-        [SerializeField] private int _maxHealth;
-        [SerializeField] private int _damage;
-        private CombatBase _enemyCombat;
-        private int _health;
-        public int Damage => _damage;
-
         public event Action<int> OnDamage;
         public event Action OnDied;
         public event Action OnCombatStarted;
 
+        [SerializeField] private int _maxHealth;
+        [SerializeField] private int _damage;
+        private CombatBase _enemyCombat;
+        private int _health;
+        private AttackType _currentAttack;
+
+        public AttackType CurrentAttack => _currentAttack;
+        public int Damage => _damage;
+
         private void Start()
         {
             _health = _maxHealth;
+            Configure();
         }
 
         public void SetState(UnitStates states)
@@ -46,6 +50,7 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
             _animation.AttackAnimation.OnDamageFrame += _enemyCombat.AnimationController.TakeDamage;
             _enemyCombat.OnDied += Win;
             _enemyCombat.AnimationController.AttackAnimation.OnDeadFrame += () => Destroy(gameObject);
+            _animation.OnAttack += (e) => _currentAttack = e;
         }
 
         protected override void DeinitCombat()
@@ -53,6 +58,7 @@ namespace Assets.Project_HyperBoxer.Scripts.Combat
             _animation.AttackAnimation.OnDamageFrame -= _enemyCombat.AnimationController.TakeDamage;
             _enemyCombat.OnDied -= Win;
             _enemyCombat.AnimationController.AttackAnimation.OnDeadFrame -= () => Destroy(gameObject);
+            _animation.OnAttack -= (e) => _currentAttack = e;
             _enemyCombat = null;
         }
 

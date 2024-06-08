@@ -24,18 +24,18 @@ namespace Assets.Project_HyperBoxer.Scripts.UI
 
         protected override void Purify()
         {
-            _combatControlView.LeftPanel.Hand.clicked -= LeftHandPunch;
-            _combatControlView.LeftPanel.Hand.clicked -= LeftLegPunch;
-            _combatControlView.RightPanel.Hand.clicked -= RightHandPunch;
-            _combatControlView.RightPanel.Hand.clicked -= RightLegPunch;
+            _combatControlView.LeftPanel.Hand.clicked -= () => LeftHandPunch?.Invoke();
+            _combatControlView.LeftPanel.Hand.clicked -= () => LeftLegPunch?.Invoke();
+            _combatControlView.RightPanel.Hand.clicked -= () => RightHandPunch?.Invoke();
+            _combatControlView.RightPanel.Hand.clicked -= () => RightLegPunch?.Invoke();
         }
 
         private void SetupButtons()
         {
-            _combatControlView.LeftPanel.Hand.clicked += LeftHandPunch;
-            _combatControlView.LeftPanel.Hand.clicked += LeftLegPunch;
-            _combatControlView.RightPanel.Hand.clicked += RightHandPunch;
-            _combatControlView.RightPanel.Hand.clicked += RightLegPunch;
+            _combatControlView.LeftPanel.Hand.clicked += () => LeftHandPunch?.Invoke();
+            _combatControlView.LeftPanel.Hand.clicked += () => LeftLegPunch?.Invoke();
+            _combatControlView.RightPanel.Hand.clicked += () => RightHandPunch?.Invoke();
+            _combatControlView.RightPanel.Hand.clicked += () => RightLegPunch?.Invoke();
         }
     }
 }

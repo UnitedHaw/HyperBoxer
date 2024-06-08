@@ -1,3 +1,4 @@
+using Assets.Project_HyperBoxer.Scripts.Combat;
 using Assets.Scripts.Enums;
 using System;
 using System.Collections;
@@ -10,7 +11,7 @@ public class AttackAnimation : MonoBehaviour
     public event Action<AttackType> OnDamageFrame;
     public event Action OnDeadFrame;
 
-    private CombatOld _unitCombat;
+    private CombatBase _unitCombat;
     private VFX _vfx;
 
     public void Init(VFX vfx)
@@ -20,7 +21,7 @@ public class AttackAnimation : MonoBehaviour
 
     private void Awake()
     {
-        _unitCombat = GetComponentInParent<CombatOld>();
+        _unitCombat = GetComponentInParent<CombatBase>();
     }
 
     public void TargetDamage()
