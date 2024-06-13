@@ -9,10 +9,6 @@ namespace Assets.Project_HyperBoxer.Scripts.Controllers
         private CombatControlWindow _combatControlWindow;
         private PlayerInput _playerInput;
 
-        public PlayerController()
-        {
-            _playerInput = new PlayerInput();
-        }
         public PlayerController(CombatControlWindow combatControlWindow)
         {
             _combatControlWindow = combatControlWindow;
