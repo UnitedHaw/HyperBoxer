@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4132074696026191737}
   - component: {fileID: 1427215800782265053}
   - component: {fileID: 9111413665403056252}
-  - component: {fileID: 3439284892385679675}
+  - component: {fileID: 854382036879427034}
   m_Layer: 0
-  m_Name: Boxer
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   _leftPunchVfx: {fileID: 2100661308016966191}
   _rightPunchVfx: {fileID: 1439086821837213851}
   _deadVfx: {fileID: 0}
---- !u!114 &3439284892385679675
+--- !u!114 &854382036879427034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5414473567057738571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea797ec71ed31d4493dbe59a4c9481b, type: 3}
+  m_Script: {fileID: 11500000, guid: b33a8bd19d64c104ea812683ba451698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1439086821855460893

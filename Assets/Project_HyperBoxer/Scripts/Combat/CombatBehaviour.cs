@@ -7,7 +7,7 @@ public abstract class CombatBehaviour : MonoBehaviour
 {
     protected AnimationController _animation;
     protected IUnitsStateChanger _unitStatechanger;
-    protected ICharacterController _characterController;
+    protected IControllerInitilizer _characterController;
     public AnimationController AnimationController => _animation;
 
     public void Setup(IUnitsStateChanger unitStateChanger, AnimationController animation)

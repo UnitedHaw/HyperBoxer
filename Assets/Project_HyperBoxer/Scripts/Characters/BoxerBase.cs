@@ -14,6 +14,8 @@ public class BoxerBase : MonoBehaviour, IUnitsStateChanger
     public UnitStates CurrentState => _currentState;
 
     public event Action<UnitStates> OnStateChanged;
+    public CombatBase Combat => _combat;
+    public AnimationController AnimationController => _animationController;
 
     private void Awake()
     {

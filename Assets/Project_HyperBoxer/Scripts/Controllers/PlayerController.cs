@@ -3,28 +3,22 @@ using Assets.Project_HyperBoxer.Scripts.UI;
 using System;
 namespace Assets.Project_HyperBoxer.Scripts.Controllers
 {
-    public class PlayerController : ICharacterController
+    public class PlayerController : CharacterController
     {
-        private CombatBase _combat;
         private CombatControlWindow _combatControlWindow;
         private PlayerInput _playerInput;
 
-        public PlayerController(CombatControlWindow combatControlWindow)
+        public PlayerController(BoxerBase boxer, CombatControlWindow combatControlWindow) : base(boxer)
         {
             _combatControlWindow = combatControlWindow;
             _playerInput = new PlayerInput(_combatControlWindow);
+            _playerInput.OnButtonPressed += _character.Combat.Punch;
         }
 
-        public void Dispose()
+        protected override void Purify()
         {
-            _playerInput.OnButtonPressed -= _combat.Punch;
+            _playerInput.OnButtonPressed -= _character.Combat.Punch;
             _playerInput.Dispose();
-        }
-
-        public void Setup(CombatBase combatBase)
-        {
-            _combat = combatBase;
-            _playerInput.OnButtonPressed += _combat.Punch;
         }
     }
 }

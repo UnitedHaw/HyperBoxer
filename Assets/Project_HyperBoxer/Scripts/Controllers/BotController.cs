@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 
 namespace Assets.Project_HyperBoxer.Scripts.Controllers
 {
-    public class BotController : ICharacterController
+    public class BotController : CharacterController
     {
-        private CombatBase _combat;
-
-        public void Dispose()
+        public BotController(BoxerBase boxer) : base(boxer)
         {
-            throw new NotImplementedException();
+
         }
 
-        public void Setup(CombatBase combatBase)
+        public void ChangeCharacter(BoxerBase boxerBase)
         {
-            _combat = combatBase;
+            _character = boxerBase;
+        }
+
+        protected override void Purify()
+        {
+            
         }
     }
 }
